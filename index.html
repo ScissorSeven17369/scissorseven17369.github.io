@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SevenZone</title>
+
+<!-- Fuente estilo pixel -->
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:#000;
+    color:#0ff;
+    font-family: 'Press Start 2P', cursive;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    overflow:hidden;
+}
+
+.container{
+    text-align:center;
+}
+
+h1{
+    font-size:2rem;
+    color:#00ffff;
+    text-shadow:0 0 10px #00ffff, 0 0 20px #8a2be2;
+}
+
+p{
+    margin-top:20px;
+    font-size:0.7rem;
+    color:#ccc;
+}
+
+.btn{
+    margin-top:30px;
+    padding:15px 25px;
+    border:none;
+    cursor:pointer;
+    background:linear-gradient(45deg, #00ffff, #8a2be2);
+    color:#000;
+    font-family: 'Press Start 2P', cursive;
+    transition:0.3s;
+}
+
+.btn:hover{
+    transform:scale(1.1);
+    box-shadow:0 0 15px #00ffff;
+}
+
+/* Animación hacker */
+.glitch{
+    animation: glitch 1s infinite;
+}
+
+@keyframes glitch{
+    0%{text-shadow:2px 2px #8a2be2;}
+    25%{text-shadow:-2px -2px #00ffff;}
+    50%{text-shadow:2px -2px #8a2be2;}
+    75%{text-shadow:-2px 2px #00ffff;}
+    100%{text-shadow:2px 2px #8a2be2;}
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1 class="glitch">SEVENZONE</h1>
+    <p>Desarrollo de videojuegos y sistemas web</p>
+
+    <button class="btn" onclick="mensaje()">Ver proyectos</button>
+</div>
+
+<script>
+function mensaje(){
+    alert("Próximamente: juegos, apps y sistemas web 🔥");
+}
+</script>
+
+</body>
+</html>
