@@ -6,9 +6,6 @@
     <title>SevenZone</title>
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;700&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
-        /* ========================
-           VARIABLES Y TEMAS
-           ======================== */
         :root {
             --bg-color: #050505;
             --surface-color: #0a0a0a;
@@ -20,6 +17,7 @@
             --neon-glow: 0 0 20px rgba(168, 85, 247, 0.35);
             --neon-glow-2: 0 0 40px rgba(168, 85, 247, 0.15);
             --transition-speed: 0.5s;
+            --card-radius: 10px;
         }
 
         [data-theme="blue"] {
@@ -46,23 +44,9 @@
             --neon-glow-2: 0 0 40px rgba(232, 121, 249, 0.15);
         }
 
-        /* ========================
-           RESETEO Y BASE
-           ======================== */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            cursor: default;
-        }
-
-        a, button, [role="button"], .project-card, .card, #theme-toggle {
-            cursor: pointer;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; cursor: default; }
+        a, button, [role="button"], .project-card, .card, #theme-toggle { cursor: pointer; }
+        html { scroll-behavior: smooth; }
 
         body {
             background-color: var(--bg-color);
@@ -79,24 +63,16 @@
             letter-spacing: 2px;
         }
 
-        /* Scanlines sutil */
         body::after {
             content: "";
             display: block;
             position: fixed;
             inset: 0;
-            background: repeating-linear-gradient(
-                0deg,
-                transparent,
-                transparent 2px,
-                rgba(0,0,0,0.03) 2px,
-                rgba(0,0,0,0.03) 4px
-            );
+            background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.03) 2px, rgba(0,0,0,0.03) 4px);
             z-index: 9999;
             pointer-events: none;
         }
 
-        /* Noise overlay */
         body::before {
             content: "";
             position: fixed;
@@ -107,15 +83,18 @@
             pointer-events: none;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 30px;
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 30px; }
+
+        /* ── PIXEL PARTICLE CANVAS ── */
+        #pixel-canvas {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            pointer-events: none;
+            opacity: 0.55;
         }
 
-        /* ========================
-           BOTÓN TEMA
-           ======================== */
+        /* ── THEME TOGGLE ── */
         #theme-toggle {
             position: fixed;
             bottom: 30px;
@@ -141,26 +120,18 @@
             box-shadow: var(--neon-glow), var(--neon-glow-2);
         }
 
-        #theme-toggle svg {
-            transition: transform 0.4s;
-        }
-
-        /* ========================
-           HEADER
-           ======================== */
+        /* ── HEADER ── */
         header {
             padding: 130px 0 90px;
             position: relative;
+            z-index: 1;
         }
 
-        /* Glow de fondo del header */
         header::before {
             content: "";
             position: absolute;
-            top: 50%;
-            left: -10%;
-            width: 60%;
-            height: 60%;
+            top: 50%; left: -10%;
+            width: 60%; height: 60%;
             background: radial-gradient(ellipse, rgba(168, 85, 247, 0.08) 0%, transparent 70%);
             transform: translateY(-50%);
             pointer-events: none;
@@ -179,9 +150,7 @@
             animation: fadeSlideDown 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
         }
 
-        .brand-title span {
-            color: var(--accent-secondary);
-        }
+        .brand-title span { color: var(--accent-secondary); }
 
         .subtitle {
             color: var(--text-muted);
@@ -193,13 +162,11 @@
             animation: fadeSlideDown 0.8s 0.15s cubic-bezier(0.22, 1, 0.36, 1) both;
         }
 
-        /* ========================
-           TERMINAL
-           ======================== */
+        /* ── TERMINAL ── */
         .terminal-box {
             background: #030303;
             border: 1px solid var(--border-color);
-            border-radius: 8px;
+            border-radius: var(--card-radius);
             padding: 0;
             max-width: 680px;
             box-shadow: 0 20px 60px rgba(0,0,0,0.9), var(--neon-glow-2);
@@ -208,9 +175,7 @@
             transition: box-shadow var(--transition-speed);
         }
 
-        .terminal-box:hover {
-            box-shadow: 0 25px 70px rgba(0,0,0,0.9), var(--neon-glow);
-        }
+        .terminal-box:hover { box-shadow: 0 25px 70px rgba(0,0,0,0.9), var(--neon-glow); }
 
         .terminal-header {
             display: flex;
@@ -221,13 +186,7 @@
             border-bottom: 1px solid #111;
         }
 
-        .terminal-title {
-            font-family: 'Fira Code', monospace;
-            font-size: 0.72rem;
-            color: #444;
-            margin-left: auto;
-            letter-spacing: 1px;
-        }
+        .terminal-title { font-size: 0.72rem; color: #444; margin-left: auto; letter-spacing: 1px; }
 
         .dot { width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; }
         .dot-red { background: #ff5f56; }
@@ -253,6 +212,7 @@
             margin-top: 14px;
             padding: 5px 14px;
             border: 1px solid var(--border-color);
+            border-radius: 4px;
             font-size: 0.7rem;
             color: #27c93f;
             background: rgba(39, 201, 63, 0.05);
@@ -260,8 +220,7 @@
         }
 
         .status-dot {
-            width: 6px;
-            height: 6px;
+            width: 6px; height: 6px;
             border-radius: 50%;
             background: #27c93f;
             animation: pulse-green 2s ease-in-out infinite;
@@ -274,8 +233,7 @@
 
         .cursor {
             display: inline-block;
-            width: 8px;
-            height: 16px;
+            width: 8px; height: 16px;
             background: var(--accent-secondary);
             animation: blink 1.1s step-end infinite;
             vertical-align: middle;
@@ -284,13 +242,12 @@
 
         @keyframes blink { 50% { opacity: 0; } }
 
-        /* ========================
-           SECCIONES
-           ======================== */
+        /* ── SECCIONES ── */
         section {
             padding: 90px 0;
             border-top: 1px solid var(--border-color);
             position: relative;
+            z-index: 1;
         }
 
         .section-title {
@@ -309,16 +266,9 @@
             font-weight: 900;
         }
 
-        .section-num {
-            font-size: 0.65rem;
-            color: var(--text-muted);
-            letter-spacing: 3px;
-            margin-left: auto;
-        }
+        .section-num { font-size: 0.65rem; color: var(--text-muted); letter-spacing: 3px; margin-left: auto; }
 
-        /* ========================
-           CARDS INFO
-           ======================== */
+        /* ── CARDS ── */
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -328,10 +278,23 @@
         .card {
             background: var(--surface-color);
             border: 1px solid var(--border-color);
+            border-radius: var(--card-radius);
             padding: 35px;
             position: relative;
             overflow: hidden;
             transition: border-color 0.35s ease, transform 0.35s ease, box-shadow 0.35s ease;
+        }
+
+        /* Pixel art corner decorators */
+        .card::before {
+            content: "";
+            position: absolute;
+            top: 6px; left: 6px;
+            width: 8px; height: 8px;
+            border-top: 2px solid var(--accent-primary);
+            border-left: 2px solid var(--accent-primary);
+            opacity: 0;
+            transition: opacity 0.3s;
         }
 
         .card::after {
@@ -339,6 +302,7 @@
             position: absolute;
             inset: 0;
             background: linear-gradient(135deg, rgba(168,85,247,0.04) 0%, transparent 60%);
+            border-radius: var(--card-radius);
             opacity: 0;
             transition: opacity 0.4s ease;
             pointer-events: none;
@@ -353,6 +317,7 @@
             box-shadow: var(--neon-glow), 0 20px 40px rgba(0,0,0,0.5);
         }
 
+        .card:hover::before { opacity: 1; }
         .card:hover::after { opacity: 1; }
 
         .card h3 {
@@ -364,18 +329,10 @@
             border-bottom: 1px solid var(--border-color);
         }
 
-        .card p {
-            font-size: 0.88rem;
-            color: var(--text-muted);
-            line-height: 1.8;
-        }
+        .card p { font-size: 0.88rem; color: var(--text-muted); line-height: 1.8; }
 
-        /* ========================
-           HABILIDADES
-           ======================== */
-        .skill-group {
-            margin-top: 22px;
-        }
+        /* ── SKILLS ── */
+        .skill-group { margin-top: 22px; }
 
         .skill-label {
             display: flex;
@@ -408,80 +365,110 @@
         .skill-progress::after {
             content: "";
             position: absolute;
-            right: 0;
-            top: 50%;
+            right: 0; top: 50%;
             transform: translateY(-50%);
-            width: 6px;
-            height: 6px;
+            width: 6px; height: 6px;
             border-radius: 50%;
             background: var(--accent-secondary);
             box-shadow: 0 0 6px var(--accent-secondary);
         }
 
-        /* ========================
-           PROYECTOS
-           ======================== */
+        /* ── PROJECT CARDS con imagen 3D tilt ── */
         .project-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 22px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 26px;
+            perspective: 1200px;
         }
 
         .project-card {
             border: 1px solid var(--border-color);
+            border-radius: var(--card-radius);
             background: var(--surface-color);
-            padding: 32px;
-            position: relative;
             overflow: hidden;
-            transition: border-color 0.35s ease, transform 0.35s ease, box-shadow 0.35s ease;
+            position: relative;
+            transition: border-color 0.35s ease, box-shadow 0.35s ease;
+            transform-style: preserve-3d;
+            transform: rotateX(0deg) rotateY(0deg);
+            will-change: transform;
         }
 
-        .project-card::before {
+        .project-card:hover {
+            border-color: var(--accent-primary);
+            box-shadow: var(--neon-glow), 0 20px 40px rgba(0,0,0,0.5);
+        }
+
+        /* Imagen del proyecto */
+        .project-img-wrap {
+            width: 100%;
+            height: 190px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .project-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1), filter 0.4s ease;
+            filter: saturate(0.7) brightness(0.8);
+            image-rendering: auto;
+        }
+
+        .project-card:hover .project-img-wrap img {
+            transform: scale(1.08);
+            filter: saturate(1) brightness(0.95);
+        }
+
+        /* Overlay de gradiente sobre imagen */
+        .project-img-wrap::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, transparent 40%, var(--surface-color) 100%);
+            pointer-events: none;
+        }
+
+        /* Línea top accent */
+        .project-img-wrap::before {
             content: "";
             position: absolute;
             top: 0; left: 0;
             width: 100%; height: 2px;
             background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+            z-index: 2;
             transform: scaleX(0);
             transform-origin: left;
             transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
         }
 
-        .project-card::after {
-            content: "";
+        .project-card:hover .project-img-wrap::before { transform: scaleX(1); }
+
+        /* Pixel badge sobre imagen */
+        .project-badge {
             position: absolute;
-            inset: 0;
-            background: linear-gradient(180deg, rgba(168,85,247,0.03) 0%, transparent 50%);
-            opacity: 0;
-            transition: opacity 0.4s;
-            pointer-events: none;
+            top: 12px; right: 12px;
+            z-index: 3;
+            background: rgba(5,5,5,0.85);
+            border: 1px solid var(--accent-primary);
+            border-radius: 4px;
+            padding: 4px 10px;
+            font-size: 0.62rem;
+            letter-spacing: 2px;
+            color: var(--accent-primary);
+            backdrop-filter: blur(4px);
         }
 
-        [data-theme="blue"] .project-card::after { background: linear-gradient(180deg, rgba(56,189,248,0.03) 0%, transparent 50%); }
-        [data-theme="red"] .project-card::after { background: linear-gradient(180deg, rgba(232,121,249,0.03) 0%, transparent 50%); }
-
-        .project-card:hover {
-            border-color: var(--accent-primary);
-            transform: translateY(-6px);
-            box-shadow: var(--neon-glow), 0 20px 40px rgba(0,0,0,0.5);
+        .project-body {
+            padding: 22px 26px 26px;
         }
-
-        .project-card:hover::before { transform: scaleX(1); }
-        .project-card:hover::after { opacity: 1; }
 
         .project-card h4 {
             color: var(--text-main);
             font-size: 1rem;
-            margin-bottom: 14px;
+            margin-bottom: 10px;
             letter-spacing: 2px;
-        }
-
-        .project-label {
-            display: inline-block;
-            color: var(--accent-primary);
-            font-size: 0.7rem;
-            letter-spacing: 3px;
-            margin-bottom: 8px;
         }
 
         .project-card p {
@@ -494,7 +481,7 @@
             display: flex;
             flex-wrap: wrap;
             gap: 8px;
-            margin-top: 20px;
+            margin-top: 18px;
         }
 
         .tag {
@@ -502,7 +489,7 @@
             padding: 4px 12px;
             border: 1px solid rgba(34, 211, 238, 0.25);
             color: var(--accent-secondary);
-            border-radius: 2px;
+            border-radius: 4px;
             background: rgba(34, 211, 238, 0.04);
             letter-spacing: 1px;
             transition: all 0.25s ease;
@@ -513,28 +500,87 @@
             background: rgba(34, 211, 238, 0.08);
         }
 
-        /* ========================
-           SCROLL REVEAL
-           ======================== */
+        /* ── PIXEL ART ANIMACION ENTRY ── */
+        @keyframes pixelReveal {
+            0% {
+                opacity: 0;
+                clip-path: inset(0 100% 0 0);
+                transform: translateY(16px);
+            }
+            40% {
+                opacity: 1;
+                clip-path: inset(0 60% 0 0);
+            }
+            70% {
+                clip-path: inset(0 20% 0 0);
+            }
+            100% {
+                opacity: 1;
+                clip-path: inset(0 0% 0 0);
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pixelRevealCard {
+            0% {
+                opacity: 0;
+                transform: translateY(24px) scale(0.97);
+                filter: blur(1px);
+            }
+            30% {
+                opacity: 0.6;
+                transform: translateY(10px) scale(0.985);
+                filter: blur(0.5px);
+            }
+            60% {
+                opacity: 0.85;
+                transform: translateY(3px) scale(0.998);
+                filter: blur(0px);
+            }
+            80% {
+                transform: translateY(-2px) scale(1.002);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+                filter: blur(0px);
+            }
+        }
+
+        /* Scanline sweep sobre hover */
+        @keyframes scanSweep {
+            0% { top: -100%; }
+            100% { top: 200%; }
+        }
+
+        .card .scan-line, .project-card .scan-line {
+            position: absolute;
+            left: 0; right: 0;
+            height: 30px;
+            background: linear-gradient(180deg, transparent, rgba(168,85,247,0.06), transparent);
+            pointer-events: none;
+            top: -100%;
+            z-index: 5;
+        }
+
+        .project-card:hover .scan-line { animation: scanSweep 1.2s ease-in-out; }
+        .card:hover .scan-line { animation: scanSweep 1.2s ease-in-out; }
+
+        /* ── SCROLL REVEAL PIXEL ── */
         .reveal {
             opacity: 0;
             transform: translateY(28px);
-            transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
         }
 
         .reveal.visible {
-            opacity: 1;
-            transform: translateY(0);
+            animation: pixelRevealCard 0.75s cubic-bezier(0.22, 1, 0.36, 1) forwards;
         }
 
-        /* Delays escalonados */
-        .reveal-delay-1 { transition-delay: 0.1s; }
-        .reveal-delay-2 { transition-delay: 0.2s; }
-        .reveal-delay-3 { transition-delay: 0.3s; }
+        .reveal-delay-1 { animation-delay: 0.08s; }
+        .reveal-delay-2 { animation-delay: 0.18s; }
+        .reveal-delay-3 { animation-delay: 0.28s; }
 
-        /* ========================
-           KEYFRAMES GLOBALES
-           ======================== */
+        /* ── GLOBAL KF ── */
         @keyframes fadeSlideDown {
             from { opacity: 0; transform: translateY(-20px); }
             to { opacity: 1; transform: translateY(0); }
@@ -545,9 +591,7 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* ========================
-           FOOTER
-           ======================== */
+        /* ── FOOTER ── */
         footer {
             text-align: center;
             padding: 60px 0;
@@ -555,6 +599,7 @@
             font-size: 0.82rem;
             color: var(--text-muted);
             position: relative;
+            z-index: 1;
         }
 
         footer .footer-brand {
@@ -576,9 +621,6 @@
             color: var(--accent-secondary);
         }
 
-        /* ========================
-           RESPONSIVE
-           ======================== */
         @media (max-width: 768px) {
             .container { padding: 0 20px; }
             header { padding: 90px 0 60px; }
@@ -586,6 +628,9 @@
     </style>
 </head>
 <body>
+
+    <!-- Pixel particle background -->
+    <canvas id="pixel-canvas"></canvas>
 
     <div id="theme-toggle" title="Cambiar tema de color" aria-label="Cambiar tema">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -634,14 +679,17 @@
             </h2>
             <div class="grid">
                 <div class="card reveal reveal-delay-1">
+                    <div class="scan-line"></div>
                     <h3>NUESTRO NÚCLEO</h3>
                     <p>Somos un grupo élite de 7 desarrolladores e ingenieros de software en formación por la ULEAM. Fusionamos lógica estructurada con creatividad visual para construir soluciones digitales robustas, desde sistemas empresariales hasta experiencias interactivas.</p>
                 </div>
                 <div class="card reveal reveal-delay-2">
+                    <div class="scan-line"></div>
                     <h3>METODOLOGÍA</h3>
                     <p>Aplicamos principios de Clean Architecture y desarrollo ágil. Nuestro ecosistema abarca el desarrollo de aplicaciones híbridas, sistemas backend seguros y la creación de videojuegos independientes con estética 100% Pixel Art.</p>
                 </div>
                 <div class="card reveal reveal-delay-3">
+                    <div class="scan-line"></div>
                     <h3>FILOSOFÍA</h3>
                     <p>Nos regimos por la optimización de recursos y la ciberseguridad ética. Cada línea de código está auditada para garantizar rendimiento. Creemos en la tecnología como herramienta para escalar ideas complejas a interfaces intuitivas.</p>
                 </div>
@@ -657,6 +705,7 @@
             </h2>
             <div class="grid">
                 <div class="card reveal reveal-delay-1">
+                    <div class="scan-line"></div>
                     <h3>DESARROLLO MÓVIL &amp; WEB</h3>
                     <div class="skill-group">
                         <div class="skill-label"><span>React Native / Expo</span><span class="skill-pct">95%</span></div>
@@ -672,6 +721,7 @@
                     </div>
                 </div>
                 <div class="card reveal reveal-delay-2">
+                    <div class="scan-line"></div>
                     <h3>GAME DEV &amp; DISEÑO</h3>
                     <div class="skill-group">
                         <div class="skill-label"><span>Unity Engine / C#</span><span class="skill-pct">92%</span></div>
@@ -687,6 +737,7 @@
                     </div>
                 </div>
                 <div class="card reveal reveal-delay-3">
+                    <div class="scan-line"></div>
                     <h3>CIBERSEGURIDAD &amp; DB</h3>
                     <div class="skill-group">
                         <div class="skill-label"><span>Firebase / Firestore</span><span class="skill-pct">90%</span></div>
@@ -713,39 +764,69 @@
             </h2>
             <div class="project-grid">
 
-                <div class="project-card reveal reveal-delay-1">
-                    <span class="project-label">GAME DEV</span>
-                    <h4>SPACEVOID</h4>
-                    <p>Videojuego de naves publicado en la Play Store. Cuenta con estética estrictamente pixel art, animaciones circulares y mecánicas de estilo arcade retro.</p>
-                    <div class="tag-container">
-                        <span class="tag">Unity</span>
-                        <span class="tag">C#</span>
-                        <span class="tag">Pixel Art</span>
-                        <span class="tag">Android</span>
+                <div class="project-card reveal reveal-delay-1" data-tilt>
+                    <div class="scan-line"></div>
+                    <div class="project-img-wrap">
+                        <span class="project-badge">GAME DEV</span>
+                        <img
+                            src="https://images.unsplash.com/photo-1614294149010-950b698f72c0?w=700&q=80"
+                            alt="SpaceVoid game screenshot"
+                            loading="lazy"
+                        />
+                    </div>
+                    <div class="project-body">
+                        <h4>SPACEVOID</h4>
+                        <p>Videojuego de naves publicado en la Play Store. Cuenta con estética estrictamente pixel art, animaciones circulares y mecánicas de estilo arcade retro.</p>
+                        <div class="tag-container">
+                            <span class="tag">Unity</span>
+                            <span class="tag">C#</span>
+                            <span class="tag">Pixel Art</span>
+                            <span class="tag">Android</span>
+                        </div>
                     </div>
                 </div>
 
-                <div class="project-card reveal reveal-delay-2">
-                    <span class="project-label">MOBILE APP</span>
-                    <h4>MUSICZONE</h4>
-                    <p>Reproductor de audio minimalista desarrollado con Expo. Implementa un sistema de escaneo automático de archivos locales del dispositivo.</p>
-                    <div class="tag-container">
-                        <span class="tag">Expo</span>
-                        <span class="tag">JavaScript</span>
-                        <span class="tag">Mobile</span>
-                        <span class="tag">React Native</span>
+                <div class="project-card reveal reveal-delay-2" data-tilt>
+                    <div class="scan-line"></div>
+                    <div class="project-img-wrap">
+                        <span class="project-badge">MOBILE APP</span>
+                        <img
+                            src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=700&q=80"
+                            alt="MusicZone app"
+                            loading="lazy"
+                        />
+                    </div>
+                    <div class="project-body">
+                        <h4>MUSICZONE</h4>
+                        <p>Reproductor de audio minimalista desarrollado con Expo. Implementa un sistema de escaneo automático de archivos locales del dispositivo.</p>
+                        <div class="tag-container">
+                            <span class="tag">Expo</span>
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">Mobile</span>
+                            <span class="tag">React Native</span>
+                        </div>
                     </div>
                 </div>
 
-                <div class="project-card reveal reveal-delay-3">
-                    <span class="project-label">GAME DEV</span>
-                    <h4>THE LAST KNIGHT</h4>
-                    <p>RPG de acción desarrollado en Unity. Un caballero solitario enfrenta hordas en un mundo oscuro y fragmentado, con combate dinámico y estética pixel art inmersiva.</p>
-                    <div class="tag-container">
-                        <span class="tag">Unity</span>
-                        <span class="tag">C#</span>
-                        <span class="tag">RPG</span>
-                        <span class="tag">Pixel Art</span>
+                <div class="project-card reveal reveal-delay-3" data-tilt>
+                    <div class="scan-line"></div>
+                    <div class="project-img-wrap">
+                        <span class="project-badge">GAME DEV</span>
+                        <img
+                            src="https://images.unsplash.com/photo-1519074069444-1ba4fff66d16?w=700&q=80"
+                            alt="The Last Knight RPG"
+                            loading="lazy"
+                        />
+                    </div>
+                    <div class="project-body">
+                        <h4>THE LAST KNIGHT</h4>
+                        <p>RPG de acción desarrollado en Unity. Un caballero solitario enfrenta hordas en un mundo oscuro y fragmentado, con combate dinámico y estética pixel art inmersiva.</p>
+                        <div class="tag-container">
+                            <span class="tag">Unity</span>
+                            <span class="tag">C#</span>
+                            <span class="tag">RPG</span>
+                            <span class="tag">Pixel Art</span>
+                        </div>
                     </div>
                 </div>
 
@@ -761,52 +842,137 @@
     </div>
 
     <script>
-        // ── Cambio de Tema ──────────────────────────────
-        const themes = ['default', 'blue', 'red'];
-        let currentThemeIndex = 0;
-        const body = document.body;
-        const themeBtn = document.getElementById('theme-toggle');
+    // ── Cambio de Tema ──────────────────────────────
+    const themes = ['default', 'blue', 'red'];
+    let currentThemeIndex = 0;
+    const body = document.body;
+    document.getElementById('theme-toggle').addEventListener('click', () => {
+        currentThemeIndex = (currentThemeIndex + 1) % themes.length;
+        const t = themes[currentThemeIndex];
+        body.removeAttribute('data-theme');
+        if (t !== 'default') body.setAttribute('data-theme', t);
+        initPixels(); // recolor particles on theme change
+    });
 
-        themeBtn.addEventListener('click', () => {
-            currentThemeIndex = (currentThemeIndex + 1) % themes.length;
-            const activeTheme = themes[currentThemeIndex];
-            body.removeAttribute('data-theme');
-            if (activeTheme !== 'default') {
-                body.setAttribute('data-theme', activeTheme);
+    // ── Pixel Art Particle Background ──────────────
+    const canvas = document.getElementById('pixel-canvas');
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+    const PIXEL_SIZE = 3;
+
+    function getAccent() {
+        return getComputedStyle(document.documentElement).getPropertyValue('--accent-primary').trim() || '#a855f7';
+    }
+    function getAccent2() {
+        return getComputedStyle(document.documentElement).getPropertyValue('--accent-secondary').trim() || '#22d3ee';
+    }
+
+    function resize() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    }
+
+    function initPixels() {
+        particles = [];
+        const count = Math.floor((canvas.width * canvas.height) / 14000);
+        for (let i = 0; i < count; i++) {
+            particles.push({
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height,
+                size: PIXEL_SIZE * (Math.random() < 0.3 ? 2 : 1),
+                alpha: Math.random() * 0.5 + 0.1,
+                speed: Math.random() * 0.25 + 0.05,
+                dir: Math.random() > 0.5 ? 1 : -1,
+                drift: (Math.random() - 0.5) * 0.3,
+                color: Math.random() > 0.5 ? getAccent() : getAccent2(),
+                blink: Math.random() * Math.PI * 2,
+                blinkSpeed: Math.random() * 0.02 + 0.005,
+            });
+        }
+    }
+
+    function drawPixels(ts) {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        for (const p of particles) {
+            p.blink += p.blinkSpeed;
+            const alpha = p.alpha * (0.5 + 0.5 * Math.sin(p.blink));
+            ctx.globalAlpha = alpha;
+            ctx.fillStyle = p.color;
+            // Pixel-square shape (no anti-alias rounding)
+            ctx.fillRect(
+                Math.round(p.x / PIXEL_SIZE) * PIXEL_SIZE,
+                Math.round(p.y / PIXEL_SIZE) * PIXEL_SIZE,
+                p.size, p.size
+            );
+            p.y -= p.speed * p.dir;
+            p.x += p.drift;
+            // Wrap
+            if (p.y < -10) p.y = canvas.height + 10;
+            if (p.y > canvas.height + 10) p.y = -10;
+            if (p.x < -10) p.x = canvas.width + 10;
+            if (p.x > canvas.width + 10) p.x = -10;
+        }
+        ctx.globalAlpha = 1;
+        requestAnimationFrame(drawPixels);
+    }
+
+    resize();
+    initPixels();
+    window.addEventListener('resize', () => { resize(); initPixels(); });
+    requestAnimationFrame(drawPixels);
+
+    // ── Scroll Reveal ───────────────────────────────
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
             }
         });
+    }, { threshold: 0.10 });
 
-        // ── Scroll Reveal ───────────────────────────────
-        const revealObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
-        document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
-
-        // ── Barras de progreso (trigger con Intersection Observer) ──
-        const skillObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.querySelectorAll('.skill-progress').forEach((bar, i) => {
-                        const target = bar.getAttribute('data-width');
-                        setTimeout(() => {
-                            bar.style.width = target + '%';
-                        }, i * 120);
-                    });
-                    skillObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.3 });
-
-        document.querySelectorAll('.card').forEach(card => {
-            if (card.querySelector('.skill-progress')) {
-                skillObserver.observe(card);
+    // ── Skill bars ───────────────────────────────────
+    const skillObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.querySelectorAll('.skill-progress').forEach((bar, i) => {
+                    const target = bar.getAttribute('data-width');
+                    setTimeout(() => { bar.style.width = target + '%'; }, i * 120);
+                });
+                skillObserver.unobserve(entry.target);
             }
         });
+    }, { threshold: 0.3 });
+
+    document.querySelectorAll('.card').forEach(card => {
+        if (card.querySelector('.skill-progress')) skillObserver.observe(card);
+    });
+
+    // ── 3D Tilt Effect on Project Cards ─────────────
+    const TILT_MAX = 12; // degrees
+
+    document.querySelectorAll('[data-tilt]').forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const cx = rect.left + rect.width / 2;
+            const cy = rect.top + rect.height / 2;
+            const dx = (e.clientX - cx) / (rect.width / 2);
+            const dy = (e.clientY - cy) / (rect.height / 2);
+            const rotY = dx * TILT_MAX;
+            const rotX = -dy * TILT_MAX;
+            card.style.transform = `perspective(900px) rotateX(${rotX}deg) rotateY(${rotY}deg) scale3d(1.04,1.04,1.04)`;
+            // Dynamic light shimmer
+            const pctX = ((e.clientX - rect.left) / rect.width * 100).toFixed(1);
+            const pctY = ((e.clientY - rect.top) / rect.height * 100).toFixed(1);
+            card.style.setProperty('--mx', pctX + '%');
+            card.style.setProperty('--my', pctY + '%');
+        });
+
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = 'perspective(900px) rotateX(0deg) rotateY(0deg) scale3d(1,1,1)';
+        });
+    });
     </script>
 </body>
 </html>
