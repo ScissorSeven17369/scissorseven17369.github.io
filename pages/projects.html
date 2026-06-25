@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio | SevenZone Studio</title>
+    <link rel="icon" type="image/png" href="../img/Fabicon/icon.png">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/animations.css">
+</head>
+<body>
+
+    <!-- Particle Background Canvas -->
+    <canvas id="pixel-canvas"></canvas>
+
+    <!-- Navigation Header -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="../index.html" class="nav-logo">
+                <span class="nav-logo-text">SEVEN<span>ZONE</span></span>
+            </a>
+            <button class="hamburger" aria-label="Abrir menú" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="../index.html" class="nav-link">Inicio</a></li>
+                <li class="nav-item"><a href="about.html" class="nav-link">Quiénes Somos</a></li>
+                <li class="nav-item"><a href="services.html" class="nav-link">Servicios</a></li>
+                <li class="nav-item active"><a href="projects.html" class="nav-link">Portafolio</a></li>
+                <li class="nav-item"><a href="https://wa.me/593986747379" target="_blank" class="nav-cta">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content Container -->
+    <main class="container" style="padding-top: 140px; min-height: 80vh;">
+        
+        <!-- Portfolio Section -->
+        <section id="portfolio-completo" style="border-bottom: none; padding-top: 20px;">
+            <div class="section-header">
+                <h1 class="section-title">Portafolio de Sistemas</h1>
+                <span class="section-num">ENGINEERED_SYSTEMS</span>
+            </div>
+
+            <!-- Categories Tabs -->
+            <div class="portfolio-filters reveal delay-1">
+                <button class="filter-btn active" data-filter="all">Todos</button>
+                <button class="filter-btn" data-filter="web">Sistemas Web</button>
+                <button class="filter-btn" data-filter="mobile">Aplicaciones Móviles</button>
+                <button class="filter-btn" data-filter="games">Videojuegos 2D</button>
+            </div>
+            
+            <!-- Grid target of portfolio.js -->
+            <div class="grid-3" id="full-portfolio-grid">
+                <div style="grid-column: 1 / -1; text-align: center; color: var(--text-secondary); padding: 40px;">
+                    Cargando repositorio de sistemas...
+                </div>
+            </div>
+        </section>
+        
+    </main>
+
+    <!-- Portfolio Captures Modal Viewer -->
+    <div id="portfolio-modal" class="custom-modal">
+        <div class="modal-container">
+            <div class="modal-carousel-viewport">
+                <button class="modal-close" onclick="closeModal('portfolio-modal')" aria-label="Cerrar modal">&times;</button>
+                <button class="modal-nav prev" id="modal-prev" aria-label="Anterior">&lsaquo;</button>
+                <img id="modal-img" src="" alt="Captura de sistema desarrollado por SevenZone" />
+                <button class="modal-nav next" id="modal-next" aria-label="Siguiente">&rsaquo;</button>
+            </div>
+            <div class="modal-indicator" id="modal-indicator"></div>
+            <div class="modal-info">
+                <h3 id="modal-title"></h3>
+                <div id="modal-desc"></div>
+                <div class="modal-meta">
+                    <span id="modal-category"></span>
+                    <span id="modal-tech"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p class="footer-brand">SEVEN<span>ZONE</span></p>
+        <p>&copy; 2026 SEVENZONE STUDIO. TODOS LOS DERECHOS RESERVADOS.</p>
+        
+        <div class="footer-socials">
+            <a href="https://www.facebook.com/profile.php?id=61589449919300" target="_blank" class="interactive">
+                <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24" class="social-icon">
+                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                </svg>
+                Facebook
+            </a>
+            <a href="https://tiktok.com/@_sevenzone" target="_blank" class="interactive">
+                <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24" class="social-icon">
+                    <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.02 1.76 4.05 1.13.97 2.62 1.48 4.12 1.54V9.5c-1.78-.06-3.5-.73-4.83-1.92-.09-.08-.17-.18-.28-.3v7.41c.07 1.83-.54 3.73-1.84 5.06-1.58 1.57-3.95 2.27-6.14 1.77-2.3-.53-4.22-2.39-4.84-4.66-.75-2.65-.01-5.74 1.95-7.66 1.71-1.68 4.29-2.28 6.57-1.5v3.13c-1.54-.42-3.28-.08-4.5 1-1.04.91-1.53 2.37-1.28 3.73.28 1.48 1.52 2.69 3.01 2.89 1.63.2 3.25-.66 3.86-2.18.2-.5.28-1.06.28-1.6V.02z"/>
+                </svg>
+                TikTok
+            </a>
+        </div>
+
+        <p class="sys-log" style="margin-top: 25px;">BUILD v3.0.0 &nbsp;|&nbsp; REPO_STATUS &nbsp;|&nbsp; NOMINAL</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../js/app.js"></script>
+    <script src="../js/effects.js"></script>
+    <script src="../js/portfolio.js"></script>
+</body>
+</html>

@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicios | SevenZone Studio</title>
+    <link rel="icon" type="image/png" href="../img/Fabicon/icon.png">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/animations.css">
+</head>
+<body>
+
+    <!-- Particle Background Canvas -->
+    <canvas id="pixel-canvas"></canvas>
+
+    <!-- Navigation Header -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="../index.html" class="nav-logo">
+                <span class="nav-logo-text">SEVEN<span>ZONE</span></span>
+            </a>
+            <button class="hamburger" aria-label="Abrir menú" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="../index.html" class="nav-link">Inicio</a></li>
+                <li class="nav-item"><a href="about.html" class="nav-link">Quiénes Somos</a></li>
+                <li class="nav-item active"><a href="services.html" class="nav-link">Servicios</a></li>
+                <li class="nav-item"><a href="projects.html" class="nav-link">Portafolio</a></li>
+                <li class="nav-item"><a href="https://wa.me/593986747379" target="_blank" class="nav-cta">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content Container -->
+    <main class="container" style="padding-top: 140px; min-height: 80vh;">
+        
+        <!-- Services Section -->
+        <section id="servicios-completo" style="border-bottom: 1px solid var(--border-color); padding-top: 20px;">
+            <div class="section-header">
+                <h1 class="section-title">Servicios Core</h1>
+                <span class="section-num">WHAT_WE_DO</span>
+            </div>
+            
+            <div class="grid-3" id="services-grid">
+                <!-- Services dynamically loaded from JSON / Fallback -->
+                <div style="grid-column: 1 / -1; text-align: center; color: var(--text-secondary); padding: 40px;">
+                    Desplegando catálogo de ingeniería...
+                </div>
+            </div>
+        </section>
+
+        <!-- Work Process Section -->
+        <section id="proceso" style="border-bottom: 1px solid var(--border-color);">
+            <div class="section-header">
+                <h2 class="section-title">Proceso de Trabajo</h2>
+                <span class="section-num">ENGINEERING_LIFECYCLE</span>
+            </div>
+            
+            <div class="timeline">
+                <div class="timeline-item reveal delay-1">
+                    <div class="scan-line"></div>
+                    <div class="timeline-number">1</div>
+                    <div class="timeline-card">
+                        <h3>Reunión Inicial</h3>
+                        <p>Nos alineamos con tu visión para entender a fondo tus objetivos comerciales, requerimientos y el alcance del producto digital.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item reveal delay-2">
+                    <div class="scan-line"></div>
+                    <div class="timeline-number">2</div>
+                    <div class="timeline-card">
+                        <h3>Análisis y Planificación</h3>
+                        <p>Diseñamos la arquitectura del sistema, definimos el stack de tecnologías ideal y estructuramos las etapas de desarrollo bajo un cronograma ágil.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item reveal delay-3">
+                    <div class="scan-line"></div>
+                    <div class="timeline-number">3</div>
+                    <div class="timeline-card">
+                        <h3>Diseño de Experiencia (UI/UX)</h3>
+                        <p>Elaboramos diagramas de flujo, wireframes y prototipos interactivos de alta fidelidad para asegurar una interfaz intuitiva y pulida.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item reveal delay-4">
+                    <div class="scan-line"></div>
+                    <div class="timeline-number">4</div>
+                    <div class="timeline-card">
+                        <h3>Desarrollo e Ingeniería</h3>
+                        <p>Escribimos código limpio, modular y auditable implementando principios de Clean Architecture y ciberseguridad desde el primer commit.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item reveal delay-1">
+                    <div class="scan-line"></div>
+                    <div class="timeline-number">5</div>
+                    <div class="timeline-card">
+                        <h3>Pruebas de Calidad (QA)</h3>
+                        <p>Sometemos el software a rigurosas auditorías de rendimiento, pruebas de carga y testeos funcionales para garantizar cero fricciones.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item reveal delay-2">
+                    <div class="scan-line"></div>
+                    <div class="timeline-number">6</div>
+                    <div class="timeline-card">
+                        <h3>Implementación y Despliegue</h3>
+                        <p>Lanzamos el sistema de forma segura en entornos de producción (Cloud o tiendas de aplicaciones), configurando pipelines CI/CD automatizados.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item reveal delay-3">
+                    <div class="scan-line"></div>
+                    <div class="timeline-number">7</div>
+                    <div class="timeline-card">
+                        <h3>Soporte y Evolución</h3>
+                        <p>Monitoreamos el rendimiento post-lanzamiento y ofrecemos soporte técnico continuo para adaptar e introducir nuevas características operativas.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contacto" style="border-bottom: none;">
+            <div class="quote-box reveal delay-1" style="text-align: center;">
+                <h2>Hablemos de tu <span>Proyecto</span></h2>
+                <p style="color: var(--text-secondary); margin-bottom: 30px; font-size: 1.05rem; line-height: 1.7;">
+                    ¿Tienes una idea, sistema o videojuego en mente? Ponte en contacto con nosotros directamente para conversar sobre tu requerimiento.
+                </p>
+                <div style="display: flex; flex-direction: column; gap: 15px; max-width: 400px; margin: 0 auto;">
+                    <a href="https://wa.me/593986747379" target="_blank" class="btn btn-primary" style="width: 100%; text-decoration: none;">
+                        Enviar Mensaje por WhatsApp
+                    </a>
+                    <a href="mailto:scissorseven1603@gmail.com" class="btn btn-secondary" style="width: 100%; text-decoration: none;">
+                        Enviar Correo Electrónico
+                    </a>
+                </div>
+            </div>
+        </section>
+        
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p class="footer-brand">SEVEN<span>ZONE</span></p>
+        <p>&copy; 2026 SEVENZONE STUDIO. TODOS LOS DERECHOS RESERVADOS.</p>
+        
+        <div class="footer-socials">
+            <a href="https://www.facebook.com/profile.php?id=61589449919300" target="_blank" class="interactive">
+                <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24" class="social-icon">
+                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                </svg>
+                Facebook
+            </a>
+            <a href="https://tiktok.com/@_sevenzone" target="_blank" class="interactive">
+                <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24" class="social-icon">
+                    <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.02 1.76 4.05 1.13.97 2.62 1.48 4.12 1.54V9.5c-1.78-.06-3.5-.73-4.83-1.92-.09-.08-.17-.18-.28-.3v7.41c.07 1.83-.54 3.73-1.84 5.06-1.58 1.57-3.95 2.27-6.14 1.77-2.3-.53-4.22-2.39-4.84-4.66-.75-2.65-.01-5.74 1.95-7.66 1.71-1.68 4.29-2.28 6.57-1.5v3.13c-1.54-.42-3.28-.08-4.5 1-1.04.91-1.53 2.37-1.28 3.73.28 1.48 1.52 2.69 3.01 2.89 1.63.2 3.25-.66 3.86-2.18.2-.5.28-1.06.28-1.6V.02z"/>
+                </svg>
+                TikTok
+            </a>
+        </div>
+
+        <p class="sys-log" style="margin-top: 25px;">BUILD v3.0.0 &nbsp;|&nbsp; DATA_PIPELINE &nbsp;|&nbsp; SECURE</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../js/app.js"></script>
+    <script src="../js/effects.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            fetch('../data/services.json')
+                .then(res => {
+                    if (!res.ok) throw new Error('CORS or Network error');
+                    return res.json();
+                })
+                .then(services => {
+                    renderServices(services);
+                })
+                .catch(err => {
+                    console.warn('Loading local services fallback due to CORS policies.');
+                    const fallbackServices = [
+                      {
+                        "id": "web-dev",
+                        "name": "Desarrollo Web",
+                        "icon": "globe",
+                        "description": "Plataformas escalables, paneles de administración complejos y e-commerce de alto rendimiento. Construimos arquitecturas robustas desde la base de datos hasta el front-end.",
+                        "tech": ["React", "Next.js", "Node.js", "Laravel", "Tailwind CSS"],
+                        "features": [
+                          "Optimización SEO y de rendimiento de carga",
+                          "Paneles de administración intuitivos a medida",
+                          "Integraciones seguras de pasarelas de pago",
+                          "Diseño responsivo para móviles y ordenadores"
+                        ]
+                      },
+                      {
+                        "id": "mobile-dev",
+                        "name": "Desarrollo Android & iOS",
+                        "icon": "smartphone",
+                        "description": "Creación de aplicaciones nativas y multiplataforma fluidas. Enfocados en una interfaz de usuario pulida, consumo de APIs óptimo y despliegue directo en tiendas.",
+                        "tech": ["Kotlin", "Flutter", "Android Studio", "Firebase", "REST APIs"],
+                        "features": [
+                          "Diseño UX/UI intuitivo y adaptado al sistema",
+                          "Sincronización en tiempo real y offline",
+                          "Notificaciones push personalizadas y analíticas",
+                          "Consumo eficiente de batería y recursos"
+                        ]
+                      },
+                      {
+                        "id": "enterprise-sys",
+                        "name": "Sistemas Empresariales",
+                        "icon": "database",
+                        "description": "Soluciones de automatización de flujos de trabajo e integraciones complejas de bases de datos para escalar la productividad de tu organización.",
+                        "tech": ["PostgreSQL", "MongoDB", "Express", "Docker", "Node.js"],
+                        "features": [
+                          "Diseño de base de datos relacional y no relacional",
+                          "Automatización de procesos repetitivos",
+                          "Arquitectura limpia (Clean Architecture)",
+                          "Seguridad de datos auditada y roles de usuario"
+                        ]
+                      },
+                      {
+                        "id": "ui-ux",
+                        "name": "Diseño UI/UX",
+                        "icon": "figma",
+                        "description": "Investigación, wireframing, prototipos de alta fidelidad e identidad de marca para crear interfaces atractivas y eficaces.",
+                        "tech": ["Figma", "Adobe Suite", "Tailwind CSS", "Design Systems"],
+                        "features": [
+                          "Creación de interfaces centradas en el usuario",
+                          "Prototipos interactivos testeables",
+                          "Guías de estilo y sistemas de componentes",
+                          "Re-diseño y modernización de interfaces"
+                        ]
+                      },
+                      {
+                        "id": "game-dev",
+                        "name": "Videojuegos 2D",
+                        "icon": "gamepad",
+                        "description": "Diseño y programación de videojuegos interactivos con especialidad en estética Pixel Art. Programación de mecánicas, físicas y sonido.",
+                        "tech": ["Unity", "C#", "GameMaker Studio", "Aseprite", "Pixel Art"],
+                        "features": [
+                          "Arte Pixel Art exclusivo hecho a mano",
+                          "Mecánicas y control físico de alta fluidez",
+                          "Sistemas de guardado y records en la nube",
+                          "Integración de sonido y efectos interactivos"
+                        ]
+                      },
+                      {
+                        "id": "tech-consulting",
+                        "name": "Consultoría Tecnológica",
+                        "icon": "users",
+                        "description": "Asesoramiento estratégico para digitalizar tus ideas, auditorías de código, optimización de infraestructura y selección de arquitecturas correctas.",
+                        "tech": ["Cloud Services", "Git", "Clean Code", "Docker", "CI/CD"],
+                        "features": [
+                          "Auditoría técnica de código y seguridad",
+                          "Optimización de costos de servidores y bases de datos",
+                          "Planificación de arquitectura de proyectos",
+                          "Asesoramiento de stack tecnológico óptimo"
+                        ]
+                      }
+                    ];
+                    renderServices(fallbackServices);
+                });
+        });
+
+        function renderServices(services) {
+            const grid = document.getElementById('services-grid');
+            grid.innerHTML = '';
+            
+            services.forEach((service, idx) => {
+                const card = document.createElement('div');
+                card.className = `card service-card reveal delay-${(idx % 3) + 1}`;
+                card.setAttribute('data-tilt', '');
+
+                card.innerHTML = `
+                    <div class="scan-line"></div>
+                    <h3>${service.name}</h3>
+                    <p>${service.description}</p>
+                    
+                    <ul style="list-style: none; padding-left: 0; margin-bottom: 20px; font-size: 0.85rem; color: var(--text-secondary); line-height: 1.8;">
+                        ${service.features.map(f => `
+                            <li style="margin-bottom: 5px; display: flex; align-items: center; gap: 8px;">
+                                <span style="color: var(--cyan-tech); font-weight: bold;">✓</span> ${f}
+                            </li>
+                        `).join('')}
+                    </ul>
+
+                    <div class="service-tech-tags">
+                        ${service.tech.map(t => `<span class="service-tech-tag">${t}</span>`).join('')}
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+
+            // Reinitialize Tilt & Scroll observers
+            if (window.init3DTilt) window.init3DTilt();
+            if (window.initScrollReveal) window.initScrollReveal();
+        }
+    </script>
+</body>
+</html>

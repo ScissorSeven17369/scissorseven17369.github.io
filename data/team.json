@@ -1,0 +1,80 @@
+[
+  {
+    "id": "enrique",
+    "name": "Enrique Grijalva",
+    "role": "Founder & Lead Software Engineer",
+    "photo": "img/Perfil/logo1.jpeg",
+    "skills": [
+      { "name": "Mobile Development", "percentage": 95 },
+      { "name": "Backend Development", "percentage": 80 },
+      { "name": "Web Development", "percentage": 92 },
+      { "name": "System Architecture", "percentage": 88 },
+      { "name": "Project Management", "percentage": 85 }
+    ]
+  },
+  {
+    "id": "andrea",
+    "name": "Andrea Zambrano",
+    "role": "Frontend Developer",
+    "photo": "img/Perfil/logo2.jpeg",
+    "skills": [
+      { "name": "React", "percentage": 80 },
+      { "name": "JavaScript", "percentage": 78 },
+      { "name": "UI Development", "percentage": 75 },
+      { "name": "Responsive Design", "percentage": 82 },
+      { "name": "Team Collaboration", "percentage": 90 }
+    ]
+  },
+  {
+    "id": "sofia",
+    "name": "Sofia Santana",
+    "role": "UI/UX Assistant Designer",
+    "photo": "img/Perfil/logo3.jpeg",
+    "skills": [
+      { "name": "UI Design", "percentage": 85 },
+      { "name": "Creativity", "percentage": 92 },
+      { "name": "Branding", "percentage": 80 },
+      { "name": "Wireframing", "percentage": 78 },
+      { "name": "Visual Identity", "percentage": 88 }
+    ]
+  },
+  {
+    "id": "melanie",
+    "name": "Melanie Moreira",
+    "role": "Social Media Manager",
+    "photo": "img/Perfil/logo4.jpeg",
+    "skills": [
+      { "name": "Content Creation", "percentage": 90 },
+      { "name": "Community Management", "percentage": 88 },
+      { "name": "Digital Marketing", "percentage": 75 },
+      { "name": "Social Networks", "percentage": 95 },
+      { "name": "Communication", "percentage": 90 }
+    ]
+  },
+  {
+    "id": "carmen",
+    "name": "Carmen Vera",
+    "role": "Client Relations Assistant",
+    "photo": "img/Perfil/logo5.jpeg",
+    "skills": [
+      { "name": "Customer Support", "percentage": 92 },
+      { "name": "Communication", "percentage": 90 },
+      { "name": "Organization", "percentage": 85 },
+      { "name": "Client Management", "percentage": 88 },
+      { "name": "Scheduling", "percentage": 82 }
+    ]
+  },
+  {
+    "id": "isabel",
+    "name": "Isabel Zurita",
+    "role": "Project Documentation Assistant",
+    "photo": "img/Perfil/logo6.jpeg",
+    "skills": [
+      { "name": "Documentation", "percentage": 95 },
+      { "name": "Organization", "percentage": 92 },
+      { "name": "Project Tracking", "percentage": 85 },
+      { "name": "Quality Control", "percentage": 90 },
+      { "name": "Reporting", "percentage": 88 }
+    ]
+  }
+]

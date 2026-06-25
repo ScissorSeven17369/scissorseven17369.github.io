@@ -1,0 +1,80 @@
+[
+  {
+    "id": "web-dev",
+    "name": "Desarrollo Web",
+    "icon": "globe",
+    "description": "Plataformas escalables, paneles de administración complejos y e-commerce de alto rendimiento. Construimos arquitecturas robustas desde la base de datos hasta el front-end.",
+    "tech": ["React", "Next.js", "Node.js", "Laravel", "Tailwind CSS"],
+    "features": [
+      "Optimización SEO y de rendimiento de carga",
+      "Paneles de administración intuitivos a medida",
+      "Integraciones seguras de pasarelas de pago",
+      "Diseño responsivo para móviles y ordenadores"
+    ]
+  },
+  {
+    "id": "mobile-dev",
+    "name": "Desarrollo Android & iOS",
+    "icon": "smartphone",
+    "description": "Creación de aplicaciones nativas y multiplataforma fluidas. Enfocados en una interfaz de usuario pulida, consumo de APIs óptimo y despliegue directo en tiendas.",
+    "tech": ["Kotlin", "Flutter", "Android Studio", "Firebase", "REST APIs"],
+    "features": [
+      "Diseño UX/UI intuitivo y adaptado al sistema",
+      "Sincronización en tiempo real y offline",
+      "Notificaciones push personalizadas y analíticas",
+      "Consumo eficiente de batería y recursos"
+    ]
+  },
+  {
+    "id": "enterprise-sys",
+    "name": "Sistemas Empresariales",
+    "icon": "database",
+    "description": "Soluciones de automatización de flujos de trabajo e integraciones complejas de bases de datos para escalar la productividad de tu organización.",
+    "tech": ["PostgreSQL", "MongoDB", "Express", "Docker", "Node.js"],
+    "features": [
+      "Diseño de base de datos relacional y no relacional",
+      "Automatización de procesos repetitivos",
+      "Arquitectura limpia (Clean Architecture)",
+      "Seguridad de datos auditada y roles de usuario"
+    ]
+  },
+  {
+    "id": "ui-ux",
+    "name": "Diseño UI/UX",
+    "icon": "figma",
+    "description": "Investigación, wireframing, prototipos de alta fidelidad e identidad de marca para crear interfaces atractivas y eficaces.",
+    "tech": ["Figma", "Adobe Suite", "Tailwind CSS", "Design Systems"],
+    "features": [
+      "Creación de interfaces centradas en el usuario",
+      "Prototipos interactivos testeables",
+      "Guías de estilo y sistemas de componentes",
+      "Re-diseño y modernización de interfaces"
+    ]
+  },
+  {
+    "id": "game-dev",
+    "name": "Videojuegos 2D",
+    "icon": "gamepad",
+    "description": "Diseño y programación de videojuegos interactivos con especialidad en estética Pixel Art. Programación de mecánicas, físicas y sonido.",
+    "tech": ["Unity", "C#", "GameMaker Studio", "Aseprite", "Pixel Art"],
+    "features": [
+      "Arte Pixel Art exclusivo hecho a mano",
+      "Mecánicas y control físico de alta fluidez",
+      "Sistemas de guardado y records en la nube",
+      "Integración de sonido y efectos interactivos"
+    ]
+  },
+  {
+    "id": "tech-consulting",
+    "name": "Consultoría Tecnológica",
+    "icon": "users",
+    "description": "Asesoramiento estratégico para digitalizar tus ideas, auditorías de código, optimización de infraestructura y selección de arquitecturas correctas.",
+    "tech": ["Cloud Services", "Git", "Clean Code", "Docker", "CI/CD"],
+    "features": [
+      "Auditoría técnica de código y seguridad",
+      "Optimización de costos de servidores y bases de datos",
+      "Planificación de arquitectura de proyectos",
+      "Asesoramiento de stack tecnológico óptimo"
+    ]
+  }
+]

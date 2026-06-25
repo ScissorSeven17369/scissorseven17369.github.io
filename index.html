@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SevenZone | Software Engineering &amp; Development Studio</title>
+    <link rel="icon" type="image/png" href="img/Fabicon/icon.png">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+
+    <!-- Particle Background Canvas -->
+    <canvas id="pixel-canvas"></canvas>
+
+    <!-- Navigation Header -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="nav-logo">
+                <span class="nav-logo-text">SEVEN<span>ZONE</span></span>
+            </a>
+            <button class="hamburger" aria-label="Abrir menú" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu">
+                <li class="nav-item active"><a href="index.html" class="nav-link">Inicio</a></li>
+                <li class="nav-item"><a href="pages/about.html" class="nav-link">Quiénes Somos</a></li>
+                <li class="nav-item"><a href="pages/services.html" class="nav-link">Servicios</a></li>
+                <li class="nav-item"><a href="pages/projects.html" class="nav-link">Portafolio</a></li>
+                <li class="nav-item"><a href="https://wa.me/593986747379" target="_blank" class="nav-cta">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- HERO / BANNER SECTION -->
+    <header class="hero">
+        <div class="container grid-2" style="align-items: center;">
+            <div class="hero-content fade-in-up">
+                <span class="hero-pretitle">Software House</span>
+                <h1 class="hero-title">SEVEN<span>ZONE</span></h1>
+                
+                <ul class="hero-services-list">
+                    <li>Software Engineering</li>
+                    <li>Mobile Development</li>
+                    <li>Web Platforms</li>
+                    <li>Game Development</li>
+                </ul>
+                
+                <p class="hero-tagline">
+                    Transformamos ideas en soluciones digitales. Diseñamos e implementamos software robusto, escalable y personalizado para empresas del futuro.
+                </p>
+                
+                <div class="hero-actions">
+                    <a href="pages/projects.html" class="btn btn-secondary">Ver Proyectos</a>
+                    <a href="https://wa.me/593986747379" target="_blank" class="btn btn-primary">Escribir por WhatsApp</a>
+                </div>
+            </div>
+            
+            <!-- Tech Terminal Graphic -->
+            <div class="terminal-box">
+                <div class="terminal-header">
+                    <div class="dot dot-red" id="secret-btn" title="System Override"></div>
+                    <div class="dot dot-yellow"></div>
+                    <div class="dot dot-green"></div>
+                    <span class="terminal-title">sevenzone ~ guest_shell</span>
+                </div>
+                <div class="terminal-body">
+                    <p><span class="cmd">$</span><span class="cli-prompt-line"></span><span class="cursor"></span></p>
+                    <p class="secret-output" id="views-output" style="margin-top: 10px; display: none;">► TOTAL INGRESS: <span id="views-count">0</span> SESSIONS</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <div class="container">
+
+        <!-- QUIÉNES SOMOS SECTION -->
+        <section id="quienes-somos">
+            <div class="section-header">
+                <h2 class="section-title">Quiénes Somos</h2>
+                <span class="section-num">SEVENZONE.IDENTITY</span>
+            </div>
+            
+            <div class="grid-2">
+                <div class="about-summary reveal delay-1">
+                    <p class="about-summary-text">
+                        <strong>SevenZone</strong> es un estudio independiente de ingeniería de software enfocado en resolver desafíos complejos a través de tecnología personalizada.
+                    </p>
+                    <p class="about-summary-text" style="font-size: 0.95rem;">
+                        Diseñamos sistemas modulares, optimizados y seguros que automatizan la operación de tu negocio, mejoran el alcance de tus productos y brindan experiencias interactivas memorables.
+                    </p>
+                    <div style="margin-top: 15px;">
+                        <a href="pages/about.html" class="btn btn-secondary" style="padding: 10px 22px; font-size: 0.75rem;">Conocer al Equipo</a>
+                    </div>
+                </div>
+                
+                <div class="reveal delay-2" style="display: flex; flex-direction: column; justify-content: center; gap: 15px;">
+                    <h3 style="font-family: 'Orbitron', sans-serif; font-size: 1rem; color: var(--cyan-tech); letter-spacing: 2px;">ESTUDIO DE INGENIERÍA ENFOCADO EN:</h3>
+                    <ul style="list-style: none; padding-left: 0; color: var(--text-secondary); line-height: 1.8; font-size: 0.9rem;">
+                        <li style="margin-bottom: 8px; display: flex; align-items: center; gap: 10px;">
+                            <span style="color: var(--blue-electric); font-weight: bold;">•</span> Sistemas Web
+                        </li>
+                        <li style="margin-bottom: 8px; display: flex; align-items: center; gap: 10px;">
+                            <span style="color: var(--blue-electric); font-weight: bold;">•</span> Aplicaciones Móviles
+                        </li>
+                        <li style="margin-bottom: 8px; display: flex; align-items: center; gap: 10px;">
+                            <span style="color: var(--blue-electric); font-weight: bold;">•</span> Videojuegos
+                        </li>
+                        <li style="margin-bottom: 8px; display: flex; align-items: center; gap: 10px;">
+                            <span style="color: var(--blue-electric); font-weight: bold;">•</span> Soluciones Empresariales
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Stats grid -->
+            <div class="about-stats reveal delay-3" style="margin-top: 50px;">
+                <div class="stat-card">
+                    <div class="stat-number">+10</div>
+                    <div class="stat-label">Proyectos Desarrollados</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">+5</div>
+                    <div class="stat-label">Tecnologías Dominadas</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Desarrollo Personalizado</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SERVICIOS SECTION -->
+        <section id="servicios">
+            <div class="section-header">
+                <h2 class="section-title">Servicios</h2>
+                <span class="section-num">WHAT_WE_OFFER</span>
+            </div>
+            
+            <div class="grid-3">
+                <div class="card reveal delay-1" data-tilt>
+                    <div class="scan-line"></div>
+                    <h3 style="display:flex; align-items:center; gap:10px;">Desarrollo Web</h3>
+                    <p>Plataformas escalables, paneles de administración complejos y e-commerce de alto rendimiento. Arquitecturas robustas.</p>
+                </div>
+                <div class="card reveal delay-2" data-tilt>
+                    <div class="scan-line"></div>
+                    <h3 style="display:flex; align-items:center; gap:10px;">Desarrollo Android</h3>
+                    <p>Aplicaciones móviles nativas e híbridas fluidas. Consumo eficiente de APIs y publicación directa en tiendas.</p>
+                </div>
+                <div class="card reveal delay-3" data-tilt>
+                    <div class="scan-line"></div>
+                    <h3 style="display:flex; align-items:center; gap:10px;">Sistemas Empresariales</h3>
+                    <p>Soluciones corporativas de automatización de flujos de trabajo e integraciones complejas de bases de datos.</p>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 40px;" class="reveal delay-1">
+                <a href="pages/services.html" class="btn btn-secondary">Ver Todos los Servicios</a>
+            </div>
+        </section>
+
+        <!-- PORTFOLIO SECTION -->
+        <section id="portafolio">
+            <div class="section-header">
+                <h2 class="section-title">Portafolio de Sistemas</h2>
+                <span class="section-num">ENGINEERED_SYSTEMS</span>
+            </div>
+            
+            <!-- Dynamic Grid targeting portfolio.js -->
+            <div class="grid-3" id="featured-portfolio-grid">
+                <div style="grid-column: 1 / -1; text-align: center; color: var(--text-secondary); padding: 40px;">
+                    Cargando proyectos destacados...
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 50px;" class="reveal delay-1">
+                <a href="pages/projects.html" class="btn btn-secondary">Ver Portafolio Completo</a>
+            </div>
+        </section>
+
+        <!-- FEATURED PRODUCTS -->
+        <section id="productos-destacados">
+            <div class="section-header">
+                <h2 class="section-title">Productos Destacados</h2>
+                <span class="section-num">FEATURED_PRODUCTS</span>
+            </div>
+            
+            <!-- Dynamic Grid targeting portfolio.js -->
+            <div class="grid-3" id="featured-products-grid">
+                <div style="grid-column: 1 / -1; text-align: center; color: var(--text-secondary); padding: 40px;">
+                    Cargando productos de software...
+                </div>
+            </div>
+        </section>
+
+        <!-- WORK PROCESS TIMELINE -->
+        <section id="proceso-trabajo">
+            <div class="section-header">
+                <h2 class="section-title">Proceso de Trabajo</h2>
+                <span class="section-num">METODOLOGÍA_ÁGIL</span>
+            </div>
+            
+            <div class="timeline">
+                <div class="timeline-item reveal delay-1">
+                    <div class="scan-line"></div>
+                    <div class="timeline-number">1</div>
+                    <div class="timeline-card">
+                        <h3>Reunión</h3>
+                        <p>Alineación inicial para capturar ideas, objetivos del negocio y requerimientos.</p>
+                    </div>
+                </div>
+                <div class="timeline-item reveal delay-2">
+                    <div class="scan-line"></div>
+                    <div class="timeline-number">2</div>
+                    <div class="timeline-card">
+                        <h3>Análisis</h3>
+                        <p>Diseño de arquitectura técnica, bases de datos y planificación del stack.</p>
+                    </div>
+                </div>
+                <div class="timeline-item reveal delay-3">
+                    <div class="scan-line"></div>
+                    <div class="timeline-number">3</div>
+                    <div class="timeline-card">
+                        <h3>Diseño</h3>
+                        <p>Prototipado de interfaces UI/UX de alta fidelidad adaptado a tu marca.</p>
+                    </div>
+                </div>
+                <div class="timeline-item reveal delay-4">
+                    <div class="scan-line"></div>
+                    <div class="timeline-number">4</div>
+                    <div class="timeline-card">
+                        <h3>Desarrollo</h3>
+                        <p>Codificación limpia bajo Clean Architecture y modularidad escalable.</p>
+                    </div>
+                </div>
+                <div class="timeline-item reveal delay-1">
+                    <div class="scan-line"></div>
+                    <div class="timeline-number">5</div>
+                    <div class="timeline-card">
+                        <h3>Pruebas</h3>
+                        <p>Garantía de calidad mediante testeos técnicos funcionales y de carga.</p>
+                    </div>
+                </div>
+                <div class="timeline-item reveal delay-2">
+                    <div class="scan-line"></div>
+                    <div class="timeline-number">6</div>
+                    <div class="timeline-card">
+                        <h3>Implementación</h3>
+                        <p>Despliegue seguro en servidores de producción o tiendas oficiales.</p>
+                    </div>
+                </div>
+                <div class="timeline-item reveal delay-3">
+                    <div class="scan-line"></div>
+                    <div class="timeline-number">7</div>
+                    <div class="timeline-card">
+                        <h3>Soporte</h3>
+                        <p>Monitoreo continuo, parches de seguridad y evolutivos del software.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <p class="footer-brand">SEVEN<span>ZONE</span></p>
+            <p>&copy; 2026 SEVENZONE STUDIO. TODOS LOS DERECHOS RESERVADOS.</p>
+            
+            <div class="footer-socials">
+                <a href="https://www.facebook.com/profile.php?id=61589449919300" target="_blank" class="interactive">
+                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24" class="social-icon">
+                        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                    </svg>
+                    Facebook
+                </a>
+                <a href="https://tiktok.com/@_sevenzone" target="_blank" class="interactive">
+                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24" class="social-icon">
+                        <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.02 1.76 4.05 1.13.97 2.62 1.48 4.12 1.54V9.5c-1.78-.06-3.5-.73-4.83-1.92-.09-.08-.17-.18-.28-.3v7.41c.07 1.83-.54 3.73-1.84 5.06-1.58 1.57-3.95 2.27-6.14 1.77-2.3-.53-4.22-2.39-4.84-4.66-.75-2.65-.01-5.74 1.95-7.66 1.71-1.68 4.29-2.28 6.57-1.5v3.13c-1.54-.42-3.28-.08-4.5 1-1.04.91-1.53 2.37-1.28 3.73.28 1.48 1.52 2.69 3.01 2.89 1.63.2 3.25-.66 3.86-2.18.2-.5.28-1.06.28-1.6V.02z"/>
+                    </svg>
+                    TikTok
+                </a>
+            </div>
+
+            <p class="sys-log" style="margin-top: 25px;">BUILD v3.0.0 &nbsp;|&nbsp; CORE_STATION &nbsp;|&nbsp; NOMINAL</p>
+        </div>
+    </footer>
+
+    <!-- INTERACTIVE PORTFOLIO CAROUSEL MODAL -->
+    <div id="portfolio-modal" class="custom-modal">
+        <div class="modal-container">
+            <div class="modal-carousel-viewport">
+                <button class="modal-close" onclick="closeModal('portfolio-modal')" aria-label="Cerrar modal">&times;</button>
+                <button class="modal-nav prev" id="modal-prev" aria-label="Anterior">&lsaquo;</button>
+                <img id="modal-img" src="" alt="Captura de sistema desarrollado por SevenZone" />
+                <button class="modal-nav next" id="modal-next" aria-label="Siguiente">&rsaquo;</button>
+            </div>
+            <div class="modal-indicator" id="modal-indicator"></div>
+            <div class="modal-info">
+                <h3 id="modal-title"></h3>
+                <div id="modal-desc"></div>
+                <div class="modal-meta">
+                    <span id="modal-category"></span>
+                    <span id="modal-tech"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Scripts -->
+    <script src="js/app.js"></script>
+    <script src="js/effects.js"></script>
+    <script src="js/portfolio.js"></script>
+</body>
+</html>

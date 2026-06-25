@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiénes Somos | SevenZone Studio</title>
+    <link rel="icon" type="image/png" href="../img/Fabicon/icon.png">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/animations.css">
+</head>
+<body>
+
+    <!-- Particle Background Canvas -->
+    <canvas id="pixel-canvas"></canvas>
+
+    <!-- Navigation Header -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="../index.html" class="nav-logo">
+                <span class="nav-logo-text">SEVEN<span>ZONE</span></span>
+            </a>
+            <button class="hamburger" aria-label="Abrir menú" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="../index.html" class="nav-link">Inicio</a></li>
+                <li class="nav-item active"><a href="about.html" class="nav-link">Quiénes Somos</a></li>
+                <li class="nav-item"><a href="services.html" class="nav-link">Servicios</a></li>
+                <li class="nav-item"><a href="projects.html" class="nav-link">Portafolio</a></li>
+                <li class="nav-item"><a href="https://wa.me/593986747379" target="_blank" class="nav-cta">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main About Section -->
+    <main class="container" style="padding-top: 140px; min-height: 80vh;">
+        <section id="identity" style="border-bottom: 1px solid var(--border-color); padding-top: 20px;">
+            <div class="section-header">
+                <h1 class="section-title">Quiénes Somos</h1>
+                <span class="section-num">SEVENZONE.ABOUT</span>
+            </div>
+            
+            <div class="grid-2">
+                <div class="about-summary reveal delay-1">
+                    <p class="about-summary-text">
+                        <strong>SevenZone</strong> es un estudio independiente de ingeniería de software enfocado en crear soluciones digitales premium. Fusionamos el rigor metodológico del desarrollo empresarial con la creatividad visual dinámica de la cultura digital para construir sistemas web robustos, aplicaciones móviles y experiencias de juego.
+                    </p>
+                    <p class="about-summary-text" style="font-size: 1rem;">
+                        Originados como un grupo de ingenieros en formación de la Universidad Laica Eloy Alfaro de Manabí (ULEAM), nos regimos bajo los principios de Clean Architecture, optimización de recursos e interfaces limpias enfocadas en la experiencia de usuario.
+                    </p>
+                </div>
+                <div class="reveal delay-2" style="display: flex; flex-direction: column; justify-content: center;">
+                    <h3 style="margin-bottom: 15px; font-family: 'Orbitron', sans-serif; font-size: 1.1rem; color: var(--cyan-tech);">NUESTRO ENFOQUE CORE</h3>
+                    <ul style="list-style: none; padding-left: 0; color: var(--text-secondary); line-height: 1.9; font-size: 0.95rem;">
+                        <li style="margin-bottom: 10px; display: flex; align-items: center; gap: 10px;">
+                            <span style="color: var(--blue-electric); font-weight: bold;">[•]</span> Sistemas Web de Alto Rendimiento
+                        </li>
+                        <li style="margin-bottom: 10px; display: flex; align-items: center; gap: 10px;">
+                            <span style="color: var(--blue-electric); font-weight: bold;">[•]</span> Aplicaciones Móviles Android &amp; iOS
+                        </li>
+                        <li style="margin-bottom: 10px; display: flex; align-items: center; gap: 10px;">
+                            <span style="color: var(--blue-electric); font-weight: bold;">[•]</span> Videojuegos Independientes 2D
+                        </li>
+                        <li style="margin-bottom: 10px; display: flex; align-items: center; gap: 10px;">
+                            <span style="color: var(--blue-electric); font-weight: bold;">[•]</span> Soluciones Empresariales Personalizadas
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Stats board -->
+            <div class="about-stats reveal delay-3" style="margin-top: 60px;">
+                <div class="stat-card">
+                    <div class="stat-number">+10</div>
+                    <div class="stat-label">Proyectos Desarrollados</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">+5</div>
+                    <div class="stat-label">Tecnologías Dominadas</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Desarrollo Personalizado</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dynamic Team Section -->
+        <section id="equipo" style="border-bottom: none;">
+            <div class="section-header">
+                <h2 class="section-title">Equipo de Trabajo</h2>
+                <span class="section-num">THE_TEAM</span>
+            </div>
+            
+            <div class="grid-3" id="team-grid">
+                <!-- Team cards dynamically loaded from JSON / Fallback -->
+                <div style="grid-column: 1 / -1; text-align: center; color: var(--text-secondary); padding: 40px;">
+                    Cargando nómina de ingenieros...
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p class="footer-brand">SEVEN<span>ZONE</span></p>
+        <p>&copy; 2026 SEVENZONE STUDIO. TODOS LOS DERECHOS RESERVADOS.</p>
+        
+        <div class="footer-socials">
+            <a href="https://www.facebook.com/profile.php?id=61589449919300" target="_blank" class="interactive">
+                <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24" class="social-icon">
+                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                </svg>
+                Facebook
+            </a>
+            <a href="https://tiktok.com/@_sevenzone" target="_blank" class="interactive">
+                <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24" class="social-icon">
+                    <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.02 1.76 4.05 1.13.97 2.62 1.48 4.12 1.54V9.5c-1.78-.06-3.5-.73-4.83-1.92-.09-.08-.17-.18-.28-.3v7.41c.07 1.83-.54 3.73-1.84 5.06-1.58 1.57-3.95 2.27-6.14 1.77-2.3-.53-4.22-2.39-4.84-4.66-.75-2.65-.01-5.74 1.95-7.66 1.71-1.68 4.29-2.28 6.57-1.5v3.13c-1.54-.42-3.28-.08-4.5 1-1.04.91-1.53 2.37-1.28 3.73.28 1.48 1.52 2.69 3.01 2.89 1.63.2 3.25-.66 3.86-2.18.2-.5.28-1.06.28-1.6V.02z"/>
+                </svg>
+                TikTok
+            </a>
+        </div>
+
+        <p class="sys-log" style="margin-top: 25px;">BUILD v3.0.0 &nbsp;|&nbsp; CORES_ONLINE &nbsp;|&nbsp; NOMINAL</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../js/app.js"></script>
+    <script src="../js/effects.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            fetch('../data/team.json')
+                .then(res => {
+                    if (!res.ok) throw new Error('CORS or Network error');
+                    return res.json();
+                })
+                .then(team => {
+                    renderTeamCards(team);
+                })
+                .catch(err => {
+                    console.warn('Loading local team fallback due to CORS policies.');
+                    const fallbackTeam = [
+                      {
+                        "id": "enrique",
+                        "name": "Enrique Grijalva",
+                        "role": "Founder & Lead Software Engineer",
+                        "photo": "img/Perfil/logo1.jpeg",
+                        "skills": [
+                          { "name": "Mobile Development", "percentage": 95 },
+                          { "name": "Backend Development", "percentage": 80 },
+                          { "name": "Web Development", "percentage": 92 },
+                          { "name": "System Architecture", "percentage": 88 },
+                          { "name": "Project Management", "percentage": 85 }
+                        ]
+                      },
+                      {
+                        "id": "andrea",
+                        "name": "Andrea Zambrano",
+                        "role": "Frontend Developer",
+                        "photo": "img/Perfil/logo2.jpeg",
+                        "skills": [
+                          { "name": "React", "percentage": 80 },
+                          { "name": "JavaScript", "percentage": 78 },
+                          { "name": "UI Development", "percentage": 75 },
+                          { "name": "Responsive Design", "percentage": 82 },
+                          { "name": "Team Collaboration", "percentage": 90 }
+                        ]
+                      },
+                      {
+                        "id": "sofia",
+                        "name": "Sofia Santana",
+                        "role": "UI/UX Assistant Designer",
+                        "photo": "img/Perfil/logo3.jpeg",
+                        "skills": [
+                          { "name": "UI Design", "percentage": 85 },
+                          { "name": "Creativity", "percentage": 92 },
+                          { "name": "Branding", "percentage": 80 },
+                          { "name": "Wireframing", "percentage": 78 },
+                          { "name": "Visual Identity", "percentage": 88 }
+                        ]
+                      },
+                      {
+                        "id": "melanie",
+                        "name": "Melanie Moreira",
+                        "role": "Social Media Manager",
+                        "photo": "img/Perfil/logo4.jpeg",
+                        "skills": [
+                          { "name": "Content Creation", "percentage": 90 },
+                          { "name": "Community Management", "percentage": 88 },
+                          { "name": "Digital Marketing", "percentage": 75 },
+                          { "name": "Social Networks", "percentage": 95 },
+                          { "name": "Communication", "percentage": 90 }
+                        ]
+                      },
+                      {
+                        "id": "carmen",
+                        "name": "Carmen Vera",
+                        "role": "Client Relations Assistant",
+                        "photo": "img/Perfil/logo5.jpeg",
+                        "skills": [
+                          { "name": "Customer Support", "percentage": 92 },
+                          { "name": "Communication", "percentage": 90 },
+                          { "name": "Organization", "percentage": 85 },
+                          { "name": "Client Management", "percentage": 88 },
+                          { "name": "Scheduling", "percentage": 82 }
+                        ]
+                      },
+                      {
+                        "id": "isabel",
+                        "name": "Isabel Zurita",
+                        "role": "Project Documentation Assistant",
+                        "photo": "img/Perfil/logo6.jpeg",
+                        "skills": [
+                          { "name": "Documentation", "percentage": 95 },
+                          { "name": "Organization", "percentage": 92 },
+                          { "name": "Project Tracking", "percentage": 85 },
+                          { "name": "Quality Control", "percentage": 90 },
+                          { "name": "Reporting", "percentage": 88 }
+                        ]
+                      }
+                    ];
+                    renderTeamCards(fallbackTeam);
+                });
+        });
+
+        function renderTeamCards(team) {
+            const grid = document.getElementById('team-grid');
+            grid.innerHTML = '';
+            
+            team.forEach((member, idx) => {
+                const card = document.createElement('div');
+                card.className = `card team-card reveal delay-${(idx % 3) + 1}`;
+                card.setAttribute('data-tilt', '');
+
+                card.innerHTML = `
+                    <div class="scan-line"></div>
+                    <div class="team-photo-wrap">
+                        <img src="../${member.photo}" alt="${member.name}" loading="lazy">
+                    </div>
+                    <div class="team-info">
+                        <h3 class="team-name">${member.name}</h3>
+                        <p class="team-role">${member.role}</p>
+                    </div>
+                    <div class="team-skills">
+                        ${member.skills.map(s => `
+                            <div class="skill-group">
+                                <div class="skill-label">
+                                    <span>${s.name}</span>
+                                    <span class="skill-pct">${s.percentage}%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-width="${s.percentage}"></div>
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+
+            // Trigger skill bar animation using IntersectionObserver
+            const skillObserver = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.querySelectorAll('.skill-progress').forEach((bar, i) => {
+                            const width = bar.getAttribute('data-width');
+                            setTimeout(() => {
+                                bar.style.width = width + '%';
+                            }, i * 100);
+                        });
+                        skillObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.15 });
+
+            document.querySelectorAll('.team-card').forEach(card => {
+                if (card.querySelector('.skill-progress')) {
+                    skillObserver.observe(card);
+                }
+            });
+
+            // Reinitialize Tilt Effect
+            if (window.init3DTilt) window.init3DTilt();
+            if (window.initScrollReveal) window.initScrollReveal();
+        }
+    </script>
+</body>
+</html>
